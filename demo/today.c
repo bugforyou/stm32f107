@@ -136,8 +136,8 @@ static rt_bool_t home_view_event_handler(struct rtgui_widget* widget, struct rtg
 		{
 			switch (ekbd->key)
 			{
-			case RTGUIK_RIGHT:
-			case RTGUIK_LEFT:
+			case RTGUIK_UP:
+			case RTGUIK_DOWN:
                 rtgui_view_show(function_view, RT_FALSE);
 				break;
 			}

@@ -21,6 +21,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32_eth.h"
 #include "stm32f10x_rcc.h"
+#include <rtthread.h>
 
 /** @addtogroup STM32_ETH_Driver
   * @brief ETH driver modules
@@ -222,6 +223,7 @@ uint32_t ETH_Init(ETH_InitTypeDef* ETH_InitStruct, uint16_t PHYAddress)
     do
     {
       timeout++;
+	  rt_thread_delay(1);
     } while (!(ETH_ReadPHYRegister(PHYAddress, PHY_BSR) & PHY_Linked_Status) && (timeout < PHY_READ_TO));
     /* Return ERROR in case of timeout */
     if(timeout == PHY_READ_TO)
