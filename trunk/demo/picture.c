@@ -171,7 +171,7 @@ static rt_bool_t picture_view_event_handler(struct rtgui_widget* widget, struct 
 		{
 			switch (ekbd->key)
 			{
-			case RTGUIK_RIGHT:
+			case RTGUIK_UP:
 				if (view_mode == VIEW_DIR_MODE) picture_show_next();
 				else if (view_mode == VIEW_FN_LIST_MODE)
 				{
@@ -184,7 +184,7 @@ static rt_bool_t picture_view_event_handler(struct rtgui_widget* widget, struct 
 					rtgui_widget_update(RTGUI_WIDGET(picture_view));
 				}
 				break;
-			case RTGUIK_LEFT:
+			case RTGUIK_DOWN:
 				if (view_mode == VIEW_DIR_MODE) picture_show_prev();
 				else if (view_mode == VIEW_FN_LIST_MODE)
 				{

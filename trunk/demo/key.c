@@ -64,13 +64,13 @@ static void key_thread_entry(void *parameter)
 
     while (1)
     {
-        next_delay = 20;
+        next_delay = 10;
 		kbd_event.key = RTGUIK_UNKNOWN;
 
         kbd_event.type = RTGUI_KEYDOWN;
         if ( key_1_GETVALUE() == 0 )
         {
-            rt_thread_delay(next_delay);
+            rt_thread_delay(next_delay * 4);
             if (key_1_GETVALUE() == 0)
             {
 				beep(1);
@@ -80,14 +80,14 @@ static void key_thread_entry(void *parameter)
             }
             else
             {
-                rt_kprintf("key_left\n");
-                kbd_event.key  = RTGUIK_LEFT;
+                rt_kprintf("key_down\n");
+                kbd_event.key  = RTGUIK_DOWN;
             }
         }
 
         if ( key_2_GETVALUE()  == 0 )
         {
-            rt_thread_delay(next_delay);
+            rt_thread_delay(next_delay * 4);
             if (key_2_GETVALUE() == 0)
             {
 				beep(1);
@@ -97,8 +97,8 @@ static void key_thread_entry(void *parameter)
 			}
 			else
 			{
-	            rt_kprintf("key_right\n");
-	            kbd_event.key  = RTGUIK_RIGHT;
+	            rt_kprintf("key_up\n");
+	            kbd_event.key  = RTGUIK_UP;
 			}
         }
 
